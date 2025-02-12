@@ -21,7 +21,6 @@ platform: package[ufw]
 
 references:
     cis@ubuntu2004: 3.5.1.7
-    cis@ubuntu2204: 3.5.1.7
 
 ocil_clause: |-
     the default policy for the incoming, outgoing and routed is not set to deny,

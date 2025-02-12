@@ -19,7 +19,6 @@ identifiers:
 
 references:
     cis@ubuntu2004: 2.2.11
-    cis@ubuntu2204: 2.2.10
 
 {{{ complete_ocil_entry_package(package="cyrus-imapd") }}}
 

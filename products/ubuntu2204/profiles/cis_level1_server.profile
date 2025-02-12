@@ -603,19 +603,19 @@ selections:
 
     ### 4.1.4 Configure auditd file access ###
     #### 4.1.4.1 Ensure audit log files are mode 0640 or less permissive (Automated)
-    - file_permissions_var_log_audit
+    #- file_permissions_var_log_audit
 
     #### 4.1.4.2 Ensure only authorized users own audit log files (Automated)
-    - file_ownership_var_log_audit_stig
+    #- file_ownership_var_log_audit_stig
 
     #### 4.1.4.3 Ensure only authorized groups are assigned ownership of audit log files (Automated)
-    - file_group_ownership_var_log_audit
+    #- file_group_ownership_var_log_audit
 
     #### 4.1.4.4 Ensure the audit log directory is 0750 or more restrictive (Automated)
-    - directory_permissions_var_log_audit
+    #- directory_permissions_var_log_audit
 
     #### 4.1.4.5 Ensure audit configuration files are 640 or more restrictive (Automated)
-    - file_permissions_etc_audit_rulesd
+    #- file_permissions_etc_audit_rulesd
     - file_permissions_etc_audit_auditd
 
     #### 4.1.4.6 Ensure audit configuration files are owned by root (Automated)
@@ -625,13 +625,13 @@ selections:
     - file_groupownership_audit_configuration
 
     #### 4.1.4.8 Ensure audit tools are 755 or more restrictive (Automated)
-    - file_permissions_audit_binaries
+   # - file_permissions_audit_binaries
 
     #### 4.1.4.9 Ensure audit tools are owned by root (Automated)
-    - file_ownership_audit_binaries
+    #- file_ownership_audit_binaries
 
     #### 4.1.4.10 Ensure audit tools belong to group root (Automated)
-    - file_groupownership_audit_binaries
+    #- file_groupownership_audit_binaries
 
     #### 4.1.4.11 Ensure cryptographic mechanisms are used to protect the integrity of audit tools (Automated)
     - aide_check_audit_tools

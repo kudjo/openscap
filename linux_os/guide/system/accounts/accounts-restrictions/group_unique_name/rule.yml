@@ -21,7 +21,6 @@ references:
     cis@sle15: 6.2.17
     cis@slmicro5: 6.2.17
     cis@ubuntu2004: 6.2.16
-    cis@ubuntu2204: 6.2.8
 
 ocil_clause: 'has duplicate group names'
 

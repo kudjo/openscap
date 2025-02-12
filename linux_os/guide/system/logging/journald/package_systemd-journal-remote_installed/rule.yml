@@ -22,7 +22,6 @@ identifiers:
     cce@slmicro5: CCE-94085-8
 
 references:
-    cis@ubuntu2204: 4.2.1.1.1
     srg: SRG-OS-000479-GPOS-00224
 
 ocil_clause: 'the package is not installed'

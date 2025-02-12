@@ -27,7 +27,6 @@ references:
     cis@sle15: 1.5.2
     cis@slmicro5: 1.5.2
     cis@ubuntu2004: 1.5.2
-    cis@ubuntu2204: 1.4.2
     cobit5: APO01.06,DSS05.04,DSS05.07,DSS06.02
     cui: 3.4.5
     disa: CCI-000225
@@ -46,11 +45,7 @@ ocil: |-
     If properly configured, the output should indicate the following
     permissions: <tt>-rw-------</tt>
 
-{{% if 'ubuntu' in product %}}
-platform: not container
-{{% else %}}
 platform: not bootc
-{{% endif %}}
 
 template:
     name: file_permissions

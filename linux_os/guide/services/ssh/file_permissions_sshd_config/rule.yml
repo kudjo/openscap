@@ -28,7 +28,6 @@ references:
     cis@sle15: 5.2.1
     cis@slmicro5: 5.2.1
     cis@ubuntu2004: 5.2.1
-    cis@ubuntu2204: 5.2.1
     cobit5: APO01.06,DSS05.04,DSS05.07,DSS06.02
     disa: CCI-000366
     isa-62443-2009: 4.3.3.7.3
@@ -51,6 +50,5 @@ srg_requirement: '{{{ srg_requirement_file_permission(file="/etc/ssh/sshd_config
 template:
     name: file_permissions
     vars:
-        filepath:
-            - /etc/ssh/sshd_config
+        filepath: /etc/ssh/sshd_config
         filemode: '0600'

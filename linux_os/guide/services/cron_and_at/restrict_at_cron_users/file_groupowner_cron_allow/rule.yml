@@ -4,7 +4,7 @@ documentation_complete: true
 title: 'Verify Group Who Owns /etc/cron.allow file'
 
 {{% if "ubuntu" in product %}}
-    {{% set target_group="crontab" %}}
+    {{% set target_group="root" %}}
 {{% else %}}
     {{% set target_group="root" %}}
 {{% endif %}}
@@ -31,7 +31,6 @@ references:
     cis@sle12: 5.1.8
     cis@sle15: 5.1.8
     cis@ubuntu2004: 5.1.8
-    cis@ubuntu2204: 5.1.8
     cobit5: APO01.06,DSS05.04,DSS05.07,DSS06.02
     disa: CCI-000366
     isa-62443-2009: 4.3.3.7.3

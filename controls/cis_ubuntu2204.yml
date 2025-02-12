@@ -1,6 +1,6 @@
-policy: CIS Benchmark for Ubuntu 24.04 LTS
-title: CIS Benchmark for Ubuntu 24.04 LTS
-id: cis_ubuntu2404
+policy: CIS Benchmark for Ubuntu 22.04 LTS
+title: CIS Benchmark for Ubuntu 22.04 LTS
+id: cis_ubuntu2204
 version: Draft
 source: https://www.cisecurity.org/cis-benchmarks
 levels:
@@ -13,7 +13,7 @@ levels:
     inherits_from:
       - l1_workstation
 reference_type: cis
-product: ubuntu2404
+product: ubuntu2204
 
 controls:
   - id: 1.1.1.1
@@ -62,51 +62,34 @@ controls:
     status: automated
 
   - id: 1.1.1.6
-    title: Ensure overlayfs kernel module is not available (Automated)
-    levels:
-      - l2_server
-      - l2_workstation
-    rules:
-      - kernel_module_overlayfs_disabled
-    status: automated
-
-  - id: 1.1.1.7
     title: Ensure squashfs kernel module is not available (Automated)
     levels:
       - l2_server
       - l2_workstation
-    rules:
+    related_rules:
       - kernel_module_squashfs_disabled
     status: planned
     notes: TODO. Partial/incorrect implementation exists.See related rules. Analogous to ubuntu2204/1.1.1.2.
 
-  - id: 1.1.1.8
+  - id: 1.1.1.7
     title: Ensure udf kernel module is not available (Automated)
     levels:
       - l2_server
       - l2_workstation
-    rules:
+    related_rules:
       - kernel_module_udf_disabled
     status: planned
     notes: TODO. Partial/incorrect implementation exists.See related rules. Analogous to ubuntu2204/1.1.1.3.
 
-  - id: 1.1.1.9
+  - id: 1.1.1.8
     title: Ensure usb-storage kernel module is not available (Automated)
     levels:
       - l1_server
       - l2_workstation
-    rules:
+    related_rules:
       - kernel_module_usb-storage_disabled
     status: planned
     notes: TODO. Partial/incorrect implementation exists.See related rules. Analogous to ubuntu2204/1.1.10.
-
-  - id: 1.1.1.10
-    title: Ensure unused filesystems kernel modules are not available (Manual)
-    levels:
-      - l1_server
-      - l1_workstation
-    status: planned
-    notes: TODO. Rule does not seem to be implemented, nor does it map to any rules in ubuntu2204 profile.
 
   - id: 1.1.2.1.1
     title: Ensure /tmp is a separate partition (Automated)
@@ -418,7 +401,6 @@ controls:
       - l1_server
       - l1_workstation
     rules:
-      - grub2_password
       - grub2_uefi_password
     status: automated
 
@@ -430,6 +412,8 @@ controls:
     rules:
       - file_owner_grub2_cfg
       - file_permissions_grub2_cfg
+      - file_owner_efi_grub2_cfg
+      - file_permissions_efi_grub2_cfg
     status: automated
 
   - id: 1.5.1
@@ -579,8 +563,6 @@ controls:
       - inactivity_timeout_value=15_minutes
       - var_screensaver_lock_delay=5_seconds
       - dconf_gnome_screensaver_idle_delay
-      - dconf_gnome_screensaver_lock_enabled
-      - dconf_gnome_screensaver_lock_delay
     status: automated
     notes: |
       The rules satisfy both controls 1.7.4 and 1.7.5.
@@ -594,7 +576,6 @@ controls:
       - l1_server
       - l1_workstation
     rules:
-      - dconf_gnome_screensaver_idle_delay
       - dconf_gnome_screensaver_lock_enabled
       - dconf_gnome_screensaver_lock_delay
     status: automated
@@ -1272,18 +1253,6 @@ controls:
     status: automated
 
   - id: 4.1.1
-    title: Ensure a single firewall configuration utility is in use (Automated)
-    levels:
-      - l1_server
-      - l1_workstation
-    rules:
-      - firewall_single_service_active
-    status: automated
-    notes: |
-      Remediation is not automated.
-
-
-  - id: 4.2.1
     title: Ensure ufw is installed (Automated)
     levels:
       - l1_server
@@ -1292,7 +1261,7 @@ controls:
       - package_ufw_installed
     status: automated
 
-  - id: 4.2.2
+  - id: 4.1.2
     title: Ensure iptables-persistent is not installed with ufw (Automated)
     levels:
       - l1_server
@@ -1301,7 +1270,7 @@ controls:
       - package_iptables-persistent_removed
     status: automated
 
-  - id: 4.2.3
+  - id: 4.1.3
     title: Ensure ufw service is enabled (Automated)
     levels:
       - l1_server
@@ -1311,7 +1280,7 @@ controls:
       - service_ufw_enabled
     status: automated
 
-  - id: 4.2.4
+  - id: 4.1.4
     title: Ensure ufw loopback traffic is configured (Automated)
     levels:
       - l1_server
@@ -1320,7 +1289,7 @@ controls:
       - set_ufw_loopback_traffic
     status: automated
 
-  - id: 4.2.5
+  - id: 4.1.5
     title: Ensure ufw outbound connections are configured (Manual)
     levels:
       - l1_server
@@ -1328,7 +1297,7 @@ controls:
     status: planned
     notes: TODO. Rule does not seem to be implemented. Analogous to ubuntu2204/3.5.1.5.
 
-  - id: 4.2.6
+  - id: 4.1.6
     title: Ensure ufw firewall rules exist for all open ports (Automated)
     levels:
       - l1_server
@@ -1337,7 +1306,7 @@ controls:
       - ufw_rules_for_open_ports
     status: automated
 
-  - id: 4.2.7
+  - id: 4.1.7
     title: Ensure ufw default deny firewall policy (Automated)
     levels:
       - l1_server
@@ -1346,7 +1315,7 @@ controls:
       - set_ufw_default_rule
     status: automated
 
-  - id: 4.3.1
+  - id: 4.2.1
     title: Ensure nftables is installed (Automated)
     levels:
       - l1_server
@@ -1355,7 +1324,7 @@ controls:
       - package_nftables_installed
     status: automated
 
-  - id: 4.3.2
+  - id: 4.2.2
     title: Ensure ufw is uninstalled or disabled with nftables (Automated)
     levels:
       - l1_server
@@ -1364,7 +1333,7 @@ controls:
       - package_ufw_removed
     status: automated
 
-  - id: 4.3.3
+  - id: 4.2.3
     title: Ensure iptables are flushed with nftables (Manual)
     levels:
       - l1_server
@@ -1373,7 +1342,7 @@ controls:
       - ensure_iptables_are_flushed
     status: manual
 
-  - id: 4.3.4
+  - id: 4.2.4
     title: Ensure a nftables table exists (Automated)
     levels:
       - l1_server
@@ -1384,7 +1353,7 @@ controls:
       - set_nftables_table
     status: automated
 
-  - id: 4.3.5
+  - id: 4.2.5
     title: Ensure nftables base chains exist (Automated)
     levels:
       - l1_server
@@ -1398,7 +1367,7 @@ controls:
       - set_nftables_base_chain
     status: automated
 
-  - id: 4.3.6
+  - id: 4.2.6
     title: Ensure nftables loopback traffic is configured (Automated)
     levels:
       - l1_server
@@ -1407,7 +1376,7 @@ controls:
       - set_nftables_loopback_traffic
     status: automated
 
-  - id: 4.3.7
+  - id: 4.2.7
     title: Ensure nftables outbound and established connections are configured (Manual)
     levels:
       - l1_server
@@ -1415,7 +1384,7 @@ controls:
     status: planned
     notes: TODO. Rule does not seem to be implemented. Analogous to ubuntu2204/3.5.2.7.
 
-  - id: 4.3.8
+  - id: 4.2.8
     title: Ensure nftables default deny firewall policy (Automated)
     levels:
       - l1_server
@@ -1424,7 +1393,7 @@ controls:
       - nftables_ensure_default_deny_policy
     status: automated
 
-  - id: 4.3.9
+  - id: 4.2.9
     title: Ensure nftables service is enabled (Automated)
     levels:
       - l1_server
@@ -1433,7 +1402,7 @@ controls:
       - service_nftables_enabled
     status: automated
 
-  - id: 4.3.10
+  - id: 4.2.10
     title: Ensure nftables rules are permanent (Automated)
     levels:
       - l1_server
@@ -1444,7 +1413,7 @@ controls:
     status: planned
     notes: TODO. Partial/incorrect implementation exists.See related rules. Analogous to ubuntu2204/3.5.2.10.
 
-  - id: 4.4.1.1
+  - id: 4.3.1.1
     title: Ensure iptables packages are installed (Automated)
     levels:
       - l1_server
@@ -1454,7 +1423,7 @@ controls:
       - package_iptables_installed
     status: automated
 
-  - id: 4.4.1.2
+  - id: 4.3.1.2
     title: Ensure nftables is not in use with iptables (Automated)
     levels:
       - l1_server
@@ -1464,7 +1433,7 @@ controls:
       - service_nftables_disabled
     status: automated
 
-  - id: 4.4.1.3
+  - id: 4.3.1.3
     title: Ensure ufw is not in use with iptables (Automated)
     levels:
       - l1_server
@@ -1473,7 +1442,7 @@ controls:
       - package_ufw_removed
     status: automated
 
-  - id: 4.4.2.1
+  - id: 4.3.2.1
     title: Ensure iptables default deny firewall policy (Automated)
     levels:
       - l1_server
@@ -1482,7 +1451,7 @@ controls:
       - set_iptables_default_rule
     status: automated
 
-  - id: 4.4.2.2
+  - id: 4.3.2.2
     title: Ensure iptables loopback traffic is configured (Automated)
     levels:
       - l1_server
@@ -1491,7 +1460,7 @@ controls:
       - set_loopback_traffic
     status: automated
 
-  - id: 4.4.2.3
+  - id: 4.3.2.3
     title: Ensure iptables outbound and established connections are configured (Manual)
     levels:
       - l1_server
@@ -1499,7 +1468,7 @@ controls:
     status: planned
     notes: TODO. Rule does not seem to be implemented. Analogous to ubuntu2204/3.5.3.2.3.
 
-  - id: 4.4.2.4
+  - id: 4.3.2.4
     title: Ensure iptables firewall rules exist for all open ports (Automated)
     levels:
       - l1_server
@@ -1508,7 +1477,7 @@ controls:
       - iptables_rules_for_open_ports
     status: automated
 
-  - id: 4.4.3.1
+  - id: 4.3.3.1
     title: Ensure ip6tables default deny firewall policy (Automated)
     levels:
       - l1_server
@@ -1517,7 +1486,7 @@ controls:
       - set_ip6tables_default_rule
     status: automated
 
-  - id: 4.4.3.2
+  - id: 4.3.3.2
     title: Ensure ip6tables loopback traffic is configured (Automated)
     levels:
       - l1_server
@@ -1526,7 +1495,7 @@ controls:
       - set_ipv6_loopback_traffic
     status: automated
 
-  - id: 4.4.3.3
+  - id: 4.3.3.3
     title: Ensure ip6tables outbound and established connections are configured (Manual)
     levels:
       - l1_server
@@ -1534,7 +1503,7 @@ controls:
     status: planned
     notes: TODO. Rule does not seem to be implemented. Analogous to ubuntu2204/3.5.3.3.3.
 
-  - id: 4.4.3.4
+  - id: 4.3.3.4
     title: Ensure ip6tables firewall rules exist for all open ports (Automated)
     levels:
       - l1_server
@@ -1659,7 +1628,7 @@ controls:
       - l1_server
       - l1_workstation
     rules:
-      - sshd_strong_kex=cis_ubuntu2404
+      - sshd_strong_kex=cis_ubuntu2004
       - sshd_use_strong_kex
     status: automated
 
@@ -1688,7 +1657,7 @@ controls:
       - l1_server
       - l1_workstation
     rules:
-      - sshd_strong_macs=cis_ubuntu2404
+      - sshd_strong_macs=cis_ubuntu2204
       - sshd_use_strong_macs
     status: automated
 
@@ -2239,7 +2208,35 @@ controls:
       - accounts_umask_etc_profile
     status: automated
 
-  - id: 6.1.1.1
+  - id: 6.1.1
+    title: Ensure AIDE is installed (Automated)
+    levels:
+      - l1_server
+      - l1_workstation
+    rules:
+      - package_aide_installed
+      - aide_build_database
+    status: automated
+
+  - id: 6.1.2
+    title: Ensure filesystem integrity is regularly checked (Automated)
+    levels:
+      - l1_server
+      - l1_workstation
+    rules:
+      - aide_periodic_cron_checking
+    status: automated
+
+  - id: 6.1.3
+    title: Ensure cryptographic mechanisms are used to protect the integrity of audit tools (Automated)
+    levels:
+      - l2_server
+      - l2_workstation
+    rules:
+      - aide_check_audit_tools
+    status: automated
+
+  - id: 6.2.1.1.1
     title: Ensure journald service is enabled and active (Automated)
     levels:
       - l1_server
@@ -2248,7 +2245,7 @@ controls:
       - service_systemd-journald_enabled
     status: automated
 
-  - id: 6.1.1.2
+  - id: 6.2.1.1.2
     title: Ensure journald log file access is configured (Manual)
     levels:
       - l1_server
@@ -2256,7 +2253,7 @@ controls:
     status: planned
     notes: TODO. Rule does not seem to be implemented. Analogous to ubuntu2204/4.2.1.7.
 
-  - id: 6.1.1.3
+  - id: 6.2.1.1.3
     title: Ensure journald log file rotation is configured (Manual)
     levels:
       - l1_server
@@ -2264,58 +2261,7 @@ controls:
     status: planned
     notes: TODO. Rule does not seem to be implemented. Analogous to ubuntu2204/4.2.1.6.
 
-  - id: 6.1.1.4
-    title: Ensure only one logging system is in use (Automated)
-    levels:
-      - l1_server
-      - l1_workstation
-    rules:
-      - logging_services_active
-    status: automated
-    notes: |
-      The title of this rule is misleading. The actual audit checks that at least
-      one of "rsyslogd" and "systemd-journald" is active.
-      See https://workbench.cisecurity.org/benchmarks/18959/tickets/23601
-
-      Remediation is not automated as the choice of correct logging service
-      is dependent on site policy.
-
-  - id: 6.1.2.1.1
-    title: Ensure systemd-journal-remote is installed (Automated)
-    levels:
-      - l1_server
-      - l1_workstation
-    rules:
-      - package_systemd-journal-remote_installed
-    status: automated
-
-  - id: 6.1.2.1.2
-    title: Ensure systemd-journal-upload authentication is configured (Manual)
-    levels:
-      - l1_server
-      - l1_workstation
-    status: planned
-    notes: TODO. Rule does not seem to be implemented. Analogous to ubuntu2204/4.2.1.1.2.
-
-  - id: 6.1.2.1.3
-    title: Ensure systemd-journal-upload is enabled and active (Automated)
-    levels:
-      - l1_server
-      - l1_workstation
-    status: automated
-    rules:
-      - service_systemd-journal-upload_enabled
-
-  - id: 6.1.2.1.4
-    title: Ensure systemd-journal-remote service is not in use (Automated)
-    levels:
-      - l1_server
-      - l1_workstation
-    rules:
-      - socket_systemd-journal-remote_disabled
-    status: automated
-
-  - id: 6.1.2.2
+  - id: 6.2.1.1.4
     title: Ensure journald ForwardToSyslog is disabled (Automated)
     levels:
       - l1_server
@@ -2324,16 +2270,7 @@ controls:
       - journald_disable_forward_to_syslog
     status: automated
 
-  - id: 6.1.2.3
-    title: Ensure journald Compress is configured (Automated)
-    levels:
-      - l1_server
-      - l1_workstation
-    rules:
-      - journald_compress
-    status: automated
-
-  - id: 6.1.2.4
+  - id: 6.2.1.1.5
     title: Ensure journald Storage is configured (Automated)
     levels:
       - l1_server
@@ -2342,81 +2279,51 @@ controls:
       - journald_storage
     status: automated
 
-  - id: 6.1.3.1
-    title: Ensure rsyslog is installed (Automated)
+  - id: 6.2.1.1.6
+    title: Ensure journald Compress is configured (Automated)
     levels:
       - l1_server
       - l1_workstation
     rules:
-      - package_rsyslog_installed
+      - journald_compress
     status: automated
 
-  - id: 6.1.3.2
-    title: Ensure rsyslog service is enabled and active (Automated)
+  - id: 6.2.1.2.1
+    title: Ensure systemd-journal-remote is installed (Automated)
     levels:
       - l1_server
       - l1_workstation
     rules:
-      - service_rsyslog_enabled
+      - package_systemd-journal-remote_installed
     status: automated
 
-  - id: 6.1.3.3
-    title: Ensure journald is configured to send logs to rsyslog (Automated)
-    levels:
-      - l1_server
-      - l1_workstation
-    rules:
-      - journald_forward_to_syslog
-    status: automated
-
-  - id: 6.1.3.4
-    title: Ensure rsyslog log file creation mode is configured (Automated)
-    levels:
-      - l1_server
-      - l1_workstation
-    rules:
-      - rsyslog_filecreatemode
-    status: automated
-
-  - id: 6.1.3.5
-    title: Ensure rsyslog logging is configured (Manual)
+  - id: 6.2.1.2.2
+    title: Ensure systemd-journal-upload authentication is configured (Manual)
     levels:
       - l1_server
       - l1_workstation
     status: planned
-    notes: TODO. Rule does not seem to be implemented. Analogous to ubuntu2204/4.2.2.5.
+    notes: TODO. Rule does not seem to be implemented. Analogous to ubuntu2204/4.2.1.1.2.
 
-  - id: 6.1.3.6
-    title: Ensure rsyslog is configured to send logs to a remote log host (Manual)
+  - id: 6.2.1.2.3
+    title: Ensure systemd-journal-upload is enabled and active (Automated)
+    levels:
+      - l1_server
+      - l1_workstation
+    status: automated
+    rules:
+      - service_systemd-journal-upload_enabled
+
+  - id: 6.2.1.2.4
+    title: Ensure systemd-journal-remote service is not in use (Automated)
     levels:
       - l1_server
       - l1_workstation
     rules:
-      - rsyslog_remote_loghost
-    status: manual
-    notes: |
-      Existing rule (rsyslog_remote_loghost) is not used because rsyslog configuration
-      is site-specific and can be too complex to reliably audit and remediate.
-      See also https://github.com/ComplianceAsCode/content/issues/11812
-
-  - id: 6.1.3.7
-    title: Ensure rsyslog is not configured to receive logs from a remote client (Automated)
-    levels:
-      - l1_server
-      - l1_workstation
-    rules:
-      - rsyslog_nolisten
+      - socket_systemd-journal-remote_disabled
     status: automated
 
-  - id: 6.1.3.8
-    title: Ensure logrotate is configured (Manual)
-    levels:
-      - l1_server
-      - l1_workstation
-    status: planned
-    notes: TODO. Rule does not seem to be implemented, nor does it map to any rules in ubuntu2204 profile.
-
-  - id: 6.1.4.1
+  - id: 6.2.2.1
     title: Ensure access to all logfiles has been configured (Automated)
     levels:
       - l1_server
@@ -2426,7 +2333,7 @@ controls:
     status: planned
     notes: TODO. Partial/incorrect implementation exists.See related rules. Analogous to ubuntu2204/4.2.3.
 
-  - id: 6.2.1.1
+  - id: 6.3.1.1
     title: Ensure auditd packages are installed (Automated)
     levels:
       - l2_server
@@ -2439,7 +2346,7 @@ controls:
       Implementation analogous to ubuntu2204/4.1.1.1.
       Added also the missing rule for audispd.
 
-  - id: 6.2.1.2
+  - id: 6.3.1.2
     title: Ensure auditd service is enabled and active (Automated)
     levels:
       - l2_server
@@ -2448,7 +2355,7 @@ controls:
       - service_auditd_enabled
     status: automated
 
-  - id: 6.2.1.3
+  - id: 6.3.1.3
     title: Ensure auditing for processes that start prior to auditd is enabled (Automated)
     levels:
       - l2_server
@@ -2458,7 +2365,7 @@ controls:
       - zipl_audit_argument
     status: automated
 
-  - id: 6.2.1.4
+  - id: 6.3.1.4
     title: Ensure audit_backlog_limit is sufficient (Automated)
     levels:
       - l2_server
@@ -2468,7 +2375,7 @@ controls:
       - zipl_audit_backlog_limit_argument
     status: automated
 
-  - id: 6.2.2.1
+  - id: 6.3.2.1
     title: Ensure audit log storage size is configured (Automated)
     levels:
       - l2_server
@@ -2478,7 +2385,7 @@ controls:
       - auditd_data_retention_max_log_file
     status: automated
 
-  - id: 6.2.2.2
+  - id: 6.3.2.2
     title: Ensure audit logs are not automatically deleted (Automated)
     levels:
       - l2_server
@@ -2488,7 +2395,7 @@ controls:
       - auditd_data_retention_max_log_file_action
     status: automated
 
-  - id: 6.2.2.3
+  - id: 6.3.2.3
     title: Ensure system is disabled when audit logs are full (Automated)
     levels:
       - l2_server
@@ -2500,7 +2407,7 @@ controls:
       - auditd_data_disk_full_action
     status: automated
 
-  - id: 6.2.2.4
+  - id: 6.3.2.4
     title: Ensure system warns when audit logs are low on space (Automated)
     levels:
       - l2_server
@@ -2516,7 +2423,7 @@ controls:
     notes: |
       The variables should allow multiple options.
 
-  - id: 6.2.3.1
+  - id: 6.3.3.1
     title: Ensure changes to system administration scope (sudoers) is collected (Automated)
     levels:
       - l2_server
@@ -2525,7 +2432,7 @@ controls:
       - audit_rules_sysadmin_actions
     status: automated
 
-  - id: 6.2.3.2
+  - id: 6.3.3.2
     title: Ensure actions as another user are always logged (Automated)
     levels:
       - l2_server
@@ -2534,7 +2441,7 @@ controls:
       - audit_rules_suid_privilege_function
     status: automated
 
-  - id: 6.2.3.3
+  - id: 6.3.3.3
     title: Ensure events that modify the sudo log file are collected (Automated)
     levels:
       - l2_server
@@ -2543,7 +2450,7 @@ controls:
       - audit_sudo_log_events
     status: automated
 
-  - id: 6.2.3.4
+  - id: 6.3.3.4
     title: Ensure events that modify date and time information are collected (Automated)
     levels:
       - l2_server
@@ -2555,7 +2462,7 @@ controls:
       - audit_rules_time_watch_localtime
     status: automated
 
-  - id: 6.2.3.5
+  - id: 6.3.3.5
     title: Ensure events that modify the system's network environment are collected (Automated)
     levels:
       - l2_server
@@ -2564,12 +2471,12 @@ controls:
       - audit_rules_networkconfig_modification
     status: automated
 
-  - id: 6.2.3.6
+  - id: 6.3.3.6
     title: Ensure use of privileged commands are collected (Automated)
     levels:
       - l2_server
       - l2_workstation
-    rules:
+    related_rules:
       - audit_rules_privileged_commands_at
       - audit_rules_privileged_commands_chage
       - audit_rules_privileged_commands_chfn
@@ -2592,7 +2499,7 @@ controls:
     status: planned
     notes: TODO. Partial/incorrect implementation exists.See related rules. Analogous to ubuntu2204/4.1.3.6.
 
-  - id: 6.2.3.7
+  - id: 6.3.3.7
     title: Ensure unsuccessful file access attempts are collected (Automated)
     levels:
       - l2_server
@@ -2605,7 +2512,7 @@ controls:
       - audit_rules_unsuccessful_file_modification_truncate
     status: automated
 
-  - id: 6.2.3.8
+  - id: 6.3.3.8
     title: Ensure events that modify user/group information are collected (Automated)
     levels:
       - l2_server
@@ -2621,7 +2528,7 @@ controls:
       - audit_rules_usergroup_modification_pamd
     status: automated
 
-  - id: 6.2.3.9
+  - id: 6.3.3.9
     title: Ensure discretionary access control permission modification events are collected (Automated)
     levels:
       - l2_server
@@ -2642,7 +2549,7 @@ controls:
       - audit_rules_dac_modification_setxattr
     status: automated
 
-  - id: 6.2.3.10
+  - id: 6.3.3.10
     title: Ensure successful file system mounts are collected (Automated)
     levels:
       - l2_server
@@ -2651,7 +2558,7 @@ controls:
       - audit_rules_media_export
     status: automated
 
-  - id: 6.2.3.11
+  - id: 6.3.3.11
     title: Ensure session initiation information is collected (Automated)
     levels:
       - l2_server
@@ -2660,7 +2567,7 @@ controls:
       - audit_rules_session_events
     status: automated
 
-  - id: 6.2.3.12
+  - id: 6.3.3.12
     title: Ensure login and logout events are collected (Automated)
     levels:
       - l2_server
@@ -2671,7 +2578,7 @@ controls:
       - audit_rules_login_events_lastlog
     status: automated
 
-  - id: 6.2.3.13
+  - id: 6.3.3.13
     title: Ensure file deletion events by users are collected (Automated)
     levels:
       - l2_server
@@ -2683,7 +2590,7 @@ controls:
       - audit_rules_file_deletion_events_unlinkat
     status: automated
 
-  - id: 6.2.3.14
+  - id: 6.3.3.14
     title: Ensure events that modify the system's Mandatory Access Controls are collected (Automated)
     levels:
       - l2_server
@@ -2693,7 +2600,7 @@ controls:
       - audit_rules_mac_modification_etc_apparmor_d
     status: automated
 
-  - id: 6.2.3.15
+  - id: 6.3.3.15
     title: Ensure successful and unsuccessful attempts to use the chcon command are collected (Automated)
     levels:
       - l2_server
@@ -2702,7 +2609,7 @@ controls:
       - audit_rules_execution_chcon
     status: automated
 
-  - id: 6.2.3.16
+  - id: 6.3.3.16
     title: Ensure successful and unsuccessful attempts to use the setfacl command are collected (Automated)
     levels:
       - l2_server
@@ -2711,7 +2618,7 @@ controls:
       - audit_rules_execution_setfacl
     status: automated
 
-  - id: 6.2.3.17
+  - id: 6.3.3.17
     title: Ensure successful and unsuccessful attempts to use the chacl command are collected (Automated)
     levels:
       - l2_server
@@ -2720,7 +2627,7 @@ controls:
       - audit_rules_execution_chacl
     status: automated
 
-  - id: 6.2.3.18
+  - id: 6.3.3.18
     title: Ensure successful and unsuccessful attempts to use the usermod command are collected (Automated)
     levels:
       - l2_server
@@ -2729,7 +2636,7 @@ controls:
       - audit_rules_privileged_commands_usermod
     status: automated
 
-  - id: 6.2.3.19
+  - id: 6.3.3.19
     title: Ensure kernel module loading unloading and modification is collected (Automated)
     levels:
       - l2_server
@@ -2742,7 +2649,7 @@ controls:
       - audit_rules_privileged_commands_rmmod
     status: automated
 
-  - id: 6.2.3.20
+  - id: 6.3.3.20
     title: Ensure the audit configuration is immutable (Automated)
     levels:
       - l2_server
@@ -2751,7 +2658,7 @@ controls:
       - audit_rules_immutable
     status: automated
 
-  - id: 6.2.3.21
+  - id: 6.3.3.21
     title: Ensure the running and on disk configuration is the same (Manual)
     levels:
       - l2_server
@@ -2759,7 +2666,7 @@ controls:
     status: planned
     notes: TODO. Rule does not seem to be implemented. Analogous to ubuntu2204/4.1.3.21.
 
-  - id: 6.2.4.1
+  - id: 6.3.4.1
     title: Ensure audit log files mode is configured (Automated)
     levels:
       - l2_server
@@ -2768,7 +2675,7 @@ controls:
       - file_permissions_var_log_audit
     status: automated
 
-  - id: 6.2.4.2
+  - id: 6.3.4.2
     title: Ensure audit log files owner is configured (Automated)
     levels:
       - l2_server
@@ -2777,7 +2684,7 @@ controls:
       - file_ownership_var_log_audit_stig
     status: automated
 
-  - id: 6.2.4.3
+  - id: 6.3.4.3
     title: Ensure audit log files group owner is configured (Automated)
     levels:
       - l2_server
@@ -2786,7 +2693,7 @@ controls:
       - file_group_ownership_var_log_audit
     status: automated
 
-  - id: 6.2.4.4
+  - id: 6.3.4.4
     title: Ensure the audit log file directory mode is configured (Automated)
     levels:
       - l2_server
@@ -2795,7 +2702,7 @@ controls:
       - directory_permissions_var_log_audit
     status: automated
 
-  - id: 6.2.4.5
+  - id: 6.3.4.5
     title: Ensure audit configuration files mode is configured (Automated)
     levels:
       - l2_server
@@ -2805,7 +2712,7 @@ controls:
       - file_permissions_etc_audit_rulesd
     status: automated
 
-  - id: 6.2.4.6
+  - id: 6.3.4.6
     title: Ensure audit configuration files owner is configured (Automated)
     levels:
       - l2_server
@@ -2814,7 +2721,7 @@ controls:
       - file_ownership_audit_configuration
     status: automated
 
-  - id: 6.2.4.7
+  - id: 6.3.4.7
     title: Ensure audit configuration files group owner is configured (Automated)
     levels:
       - l2_server
@@ -2823,7 +2730,7 @@ controls:
       - file_groupownership_audit_configuration
     status: automated
 
-  - id: 6.2.4.8
+  - id: 6.3.4.8
     title: Ensure audit tools mode is configured (Automated)
     levels:
       - l2_server
@@ -2832,7 +2739,7 @@ controls:
       - file_permissions_audit_binaries
     status: automated
 
-  - id: 6.2.4.9
+  - id: 6.3.4.9
     title: Ensure audit tools owner is configured (Automated)
     levels:
       - l2_server
@@ -2841,41 +2748,13 @@ controls:
       - file_ownership_audit_binaries
     status: automated
 
-  - id: 6.2.4.10
+  - id: 6.3.4.10
     title: Ensure audit tools group owner is configured (Automated)
     levels:
       - l2_server
       - l2_workstation
     rules:
       - file_groupownership_audit_binaries
-    status: automated
-
-  - id: 6.3.1
-    title: Ensure AIDE is installed (Automated)
-    levels:
-      - l1_server
-      - l1_workstation
-    rules:
-      - aide_build_database
-      - package_aide_installed
-    status: automated
-
-  - id: 6.3.2
-    title: Ensure filesystem integrity is regularly checked (Automated)
-    levels:
-      - l1_server
-      - l1_workstation
-    rules:
-      - aide_periodic_checking_systemd_timer
-    status: automated
-
-  - id: 6.3.3
-    title: Ensure cryptographic mechanisms are used to protect the integrity of audit tools (Automated)
-    levels:
-      - l2_server
-      - l2_workstation
-    rules:
-      - aide_check_audit_tools
     status: automated
 
   - id: 7.1.1

@@ -25,7 +25,6 @@ references:
     cis@sle12: 5.1.5
     cis@sle15: 5.1.5
     cis@ubuntu2004: 5.1.5
-    cis@ubuntu2204: 5.1.5
     cobit5: APO01.06,DSS05.04,DSS05.07,DSS06.02
     disa: CCI-000366
     isa-62443-2009: 4.3.3.7.3

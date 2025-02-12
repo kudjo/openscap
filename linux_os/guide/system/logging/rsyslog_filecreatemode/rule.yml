@@ -20,7 +20,6 @@ identifiers:
 
 references:
     cis@ubuntu2004: 4.2.1.4
-    cis@ubuntu2204: 4.2.2.4
 
 ocil_clause: '$FileCreateMode is not set or is more permissive than 0640'
 

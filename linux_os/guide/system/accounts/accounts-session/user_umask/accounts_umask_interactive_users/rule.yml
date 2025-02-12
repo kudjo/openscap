@@ -22,7 +22,6 @@ identifiers:
 
 references:
     cis@ubuntu2004: 5.4.4
-    cis@ubuntu2204: 5.5.4
     disa: CCI-000366
     srg: SRG-OS-000480-GPOS-00227,SRG-OS-000480-GPOS-00228
     stigid@ol7: OL07-00-021040
@@ -40,10 +39,10 @@ ocil: |-
 
     Note: The example is for a system that is configured to create users home directories in the "/home" directory.
 
-    $ sudo find /home -maxdepth 2 -type f -name ".[^.]*" -exec grep -iH -d skip --exclude=.bash_history umask {} \;
+    # grep -ri umask /home/
 
-    /home/wadea/.bash_history:grep -i umask /etc/bashrc /etc/csh.cshrc /etc/profile
-    /home/wadea/.bash_history:grep -i umask /etc/login.defs
+    /home/smithj/.bash_history:grep -i umask /etc/bashrc /etc/csh.cshrc /etc/profile
+    /home/smithj/.bash_history:grep -i umask /etc/login.defs
 
 fixtext: |-
     Remove the umask statement from all local interactive user's initialization files.

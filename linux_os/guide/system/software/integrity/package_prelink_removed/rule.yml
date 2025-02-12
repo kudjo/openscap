@@ -15,7 +15,6 @@ severity: medium
 
 references:
     cis@ubuntu2004: 1.6.3
-    cis@ubuntu2204: 1.5.2
 
 template:
     name: package_removed

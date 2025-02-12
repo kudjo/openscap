@@ -27,7 +27,6 @@ references:
     cis@sle15: 3.5.2.6
     cis@slmicro5: 3.5.2.6
     cis@ubuntu2004: 3.5.2.6
-    cis@ubuntu2204: 3.5.2.6
     pcidss: Req-1.4.1
 
 warnings:

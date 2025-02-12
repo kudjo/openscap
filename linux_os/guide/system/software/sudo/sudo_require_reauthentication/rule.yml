@@ -31,7 +31,6 @@ identifiers:
     cce@slmicro5: CCE-93716-9
 
 references:
-    cis@ubuntu2204: 5.3.6
     disa: CCI-004895
     nist: IA-11
     srg: SRG-OS-000373-GPOS-00156,SRG-OS-000373-GPOS-00157,SRG-OS-000373-GPOS-00158

@@ -25,7 +25,6 @@ references:
     cis@sle15: 6.2.13
     cis@slmicro5: 6.2.13
     cis@ubuntu2004: 6.2.12
-    cis@ubuntu2204: 6.2.3
     cjis: 5.5.2
     cobit5: DSS05.04,DSS05.05,DSS05.07,DSS05.10,DSS06.03,DSS06.10
     disa: CCI-000764
