@@ -109,6 +109,7 @@ rules:
 - accounts_user_dot_group_ownership
 - accounts_user_dot_no_world_writable_programs
 - accounts_user_dot_user_ownership
+- account_user_dot_files
 - accounts_user_home_paths_only
 - accounts_user_interactive_home_directory_defined
 - accounts_user_interactive_home_directory_exists

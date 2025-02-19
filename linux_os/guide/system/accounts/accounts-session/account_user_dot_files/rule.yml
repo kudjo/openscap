@@ -1,0 +1,47 @@
+documentation_complete: true
+
+
+title: 'User Initialization Files access must configured'
+
+description: |-
+  While the system administrator can establish secure permissions for users' "dot" files, the users can easily override these.
+
+    .forward file specifies an email address to forward the user's mail to.
+    .rhost file provides the "remote authentication" database for the rcp, rlogin, and rsh commands and the rcmd() function. These files bypass the standard password-based user authentication mechanism. They specify remote hosts and users that are considered trusted (i.e. are allowed to access the local system without supplying a password)
+    .netrc file contains data for logging into a remote host or passing authentication to an API.
+    .bash_history file keeps track of the user’s commands.
+
+rationale: |-
+  User configuration files with excessive or incorrect access may enable malicious users to steal or modify other users' data or to gain another user's system privileges.
+
+severity: medium
+
+identifiers:
+    cce@rhel8: CCE-86314-2
+    cce@rhel9: CCE-87037-8
+    cce@rhel10: CCE-89225-7
+    cce@sle12: CCE-92295-5
+    cce@sle15: CCE-91408-5
+
+references:
+    cis@sle12: 6.2.8
+    cis@sle15: 6.2.8
+    cis@ubuntu2004: 6.2.7
+    disa: CCI-000366
+    srg: SRG-OS-000480-GPOS-00227
+    stigid@ol7: OL07-00-020700
+
+ocil_clause: 'they are not'
+
+ocil: |-
+    To verify the local initialization files of all local interactive users are group-
+    owned by the appropriate user, inspect the primary group of the respective
+    users in <tt>/etc/passwd</tt> and verify all initialization files under the
+    respective users home directory. Check the group owner of all local interactive users
+    initialization files.
+
+warnings:
+    - general: |-
+       Due to OVAL limitation, this rule can report a false negative in a
+       specific situation where two interactive users swap the group-ownership
+       of their respective initialization files.

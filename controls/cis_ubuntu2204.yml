@@ -3001,6 +3001,8 @@ controls:
       - no_netrc_files
       - accounts_user_dot_user_ownership
       - accounts_user_dot_group_ownership
+      - accounts_user_dot_no_world_writable_programs
       - file_permission_user_init_files
       - file_permission_user_bash_history
+      - account_user_dot_files
     status: automated

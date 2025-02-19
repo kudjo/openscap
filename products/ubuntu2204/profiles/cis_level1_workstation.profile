@@ -1035,3 +1035,5 @@ selections:
     - accounts_user_dot_group_ownership
     - file_permission_user_init_files
     - file_permission_user_bash_history
+    - accounts_user_dot_no_world_writable_programs
+    - account_user_dot_files
