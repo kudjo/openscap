@@ -51,7 +51,7 @@ template:
     vars:
         filepath: /etc/cron.allow
 {{% if "ubuntu" in product %}}
-        gid_or_name: 'crontab'
+        gid_or_name: 'root'
 {{% else %}}
         gid_or_name: '0'
 {{% endif %}}

@@ -8,7 +8,7 @@
   </definition>
 
   {{%- set interactive_users_object = "object_" ~ rule_id ~ "_objects" -%}}
-  {{{ create_interactive_users_list_object(interactive_users_object) }}}
+  {{{ create_interactive_users_list_object(interactive_users_object, include_root=True) }}}
 
   <local_variable id="var_accounts_user_dot_no_world_writable_programs_dirs" datatype="string"
       version="1" comment="Variable including all home dirs from interactive users">

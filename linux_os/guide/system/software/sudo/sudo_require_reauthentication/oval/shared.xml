@@ -19,13 +19,13 @@
 
   <ind:textfilecontent54_object id="obj_sudo_timestamp_timeout" version="1">
     <ind:filepath operation="pattern match">^\/etc\/(sudoers|sudoers\.d\/.*)$</ind:filepath>  
-    <ind:pattern operation="pattern match">^[\s]*Defaults[\s]+timestamp_timeout[\s]*=\s*[+]?(\d*\.\d+|\d+\.\d*|\d+)$</ind:pattern>
+    <ind:pattern operation="pattern match">^[\s]*Defaults[\s]+timestamp_timeout[\s]*=\b([1-9]|1[0-5])\b$</ind:pattern>
     <ind:instance datatype="int">1</ind:instance>
   </ind:textfilecontent54_object>
 
    <ind:textfilecontent54_object id="obj_sudo_timestamp_timeout_no_signs" version="1">
     <ind:filepath operation="pattern match">^\/etc\/(sudoers|sudoers\.d\/.*)$</ind:filepath>  
-    <ind:pattern operation="pattern match">^[\s]*Defaults[\s]+timestamp_timeout[\s]*=\s*[\-](\d*\.\d+|\d+\.\d*|\d+)$</ind:pattern>
+    <ind:pattern operation="pattern match">^[\s]*Defaults[\s]+timestamp_timeout[\s]*=\b([1-9]|1[0-5])\b$</ind:pattern>
     <ind:instance datatype="int">1</ind:instance>
   </ind:textfilecontent54_object> 
 </def-group>

@@ -232,7 +232,8 @@ class BashRemediation(Remediation):
         rule_specific_conditionals = sorted(super(
             BashRemediation, self).get_rule_specific_conditionals("bash", cpe_platforms))
         if inherited_conditionals or rule_specific_conditionals:
-            wrapped_fix_text = ["# Remediation is applicable only in certain platforms"]
+            wrapped_fix_text = ["#!/bin/bash"]
+            wrapped_fix_text.append("# Remediation is applicable only in certain platforms")
 
             all_conditions = ""
             if inherited_conditionals:

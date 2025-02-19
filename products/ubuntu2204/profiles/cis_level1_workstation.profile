@@ -604,6 +604,12 @@ selections:
     - file_permissions_sshd_config
     - file_owner_sshd_config
     - file_groupowner_sshd_config
+    - directory_permissions_sshd_config_d
+    - directory_groupowner_sshd_config_d
+    - directory_owner_sshd_config_d
+    - file_permissions_sshd_drop_in_config
+    - file_groupowner_sshd_drop_in_config
+    - file_owner_sshd_drop_in_config
 
     ### 5.1.2 Ensure permissions on SSH private host key files are configured (Automated)
     - file_permissions_sshd_private_key
@@ -866,7 +872,7 @@ selections:
     - accounts_tmout
 
     #### 5.4.3.3 Ensure default user umask is configured (Automated)
-    - var_accounts_user_umask=027
+    - var_accounts_user_umask=022
     - accounts_umask_etc_bashrc
     - accounts_umask_etc_login_defs
     - accounts_umask_etc_profile
@@ -981,6 +987,7 @@ selections:
 
     ### 7.1.11 Ensure world writable files and directories are secured (Automated)
     - file_permissions_unauthorized_world_writable
+    - dir_perms_world_writable_sticky_bits
 
     ### 7.1.12 Ensure no files or directories without an owner and a group exist (Automated)
     - file_permissions_ungroupowned
