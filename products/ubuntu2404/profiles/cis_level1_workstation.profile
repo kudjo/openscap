@@ -416,6 +416,7 @@ selections:
 
     #### 2.4.1.8 Ensure cron is restricted to authorized users (Automated)
     - file_cron_deny_not_exist
+    - file_cron_allow_exists
     - file_permissions_cron_allow
     - file_owner_cron_allow
     - file_groupowner_cron_allow
@@ -953,7 +954,7 @@ selections:
     - aide_build_database
 
     ### 6.3.2 Ensure filesystem integrity is regularly checked (Automated)
-    - aide_periodic_cron_checking
+    - aide_periodic_checking_systemd_timer
 
     ### 6.3.3 Ensure cryptographic mechanisms are used to protect the integrity of audit tools (Automated)
     - aide_check_audit_tools

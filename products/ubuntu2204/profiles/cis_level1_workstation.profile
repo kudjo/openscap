@@ -410,6 +410,7 @@ selections:
 
     #### 2.4.1.8 Ensure cron is restricted to authorized users (Automated)
     - file_cron_deny_not_exist
+    - file_cron_allow_exists
     - file_permissions_cron_allow
     - file_owner_cron_allow
     - file_groupowner_cron_allow

@@ -430,6 +430,8 @@ controls:
     rules:
       - file_owner_grub2_cfg
       - file_permissions_grub2_cfg
+      - file_owner_efi_grub2_cfg
+      - file_permissions_efi_grub2_cfg
     status: automated
 
   - id: 1.5.1
@@ -1077,6 +1079,7 @@ controls:
       - l1_workstation
     rules:
       - file_cron_deny_not_exist
+      - file_cron_allow_exists
       - file_groupowner_cron_allow
       - file_owner_cron_allow
       - file_permissions_cron_allow

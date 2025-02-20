@@ -13,6 +13,6 @@ operator: equals
 interactive: false
 
 options:
-    default: enforce
+    default: complain
     complain: complain
     enforce: enforce
