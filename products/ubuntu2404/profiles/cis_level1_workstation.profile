@@ -879,7 +879,7 @@ selections:
     - accounts_tmout
 
     #### 5.4.3.3 Ensure default user umask is configured (Automated)
-    - var_accounts_user_umask=022
+    - var_accounts_user_umask=027
     - accounts_umask_etc_bashrc
     - accounts_umask_etc_login_defs
     - accounts_umask_etc_profile
@@ -914,7 +914,7 @@ selections:
     - socket_systemd-journal-remote_disabled
     
     ##### 6.1.2.2 Ensure journald ForwardToSyslog is disabled (Automated)
-    - journald_disable_forward_to_syslog
+    #- journald_disable_forward_to_syslog
 
     ##### 6.1.2.3 Ensure journald Compress is configured (Automated)
     - journald_compress
@@ -1022,6 +1022,7 @@ selections:
 
     ### 7.1.11 Ensure world writable files and directories are secured (Automated)
     - file_permissions_unauthorized_world_writable
+    - dir_perms_world_writable_sticky_bits
 
     ### 7.1.12 Ensure no files or directories without an owner and a group exist (Automated)
     - file_permissions_ungroupowned

@@ -2321,14 +2321,14 @@ controls:
       - socket_systemd-journal-remote_disabled
     status: automated
 
-  - id: 6.1.2.2
-    title: Ensure journald ForwardToSyslog is disabled (Automated)
-    levels:
-      - l1_server
-      - l1_workstation
-    rules:
-      - journald_disable_forward_to_syslog
-    status: automated
+      # - id: 6.1.2.2
+      #   title: Ensure journald ForwardToSyslog is disabled (Automated)
+      #   levels:
+      #     - l1_server
+      #     - l1_workstation
+      #   rules:
+      #     - journald_disable_forward_to_syslog
+      #   status: automated
 
   - id: 6.1.2.3
     title: Ensure journald Compress is configured (Automated)
@@ -3004,6 +3004,7 @@ controls:
       - l1_workstation
     rules:
       - file_permissions_unauthorized_world_writable
+      - dir_perms_world_writable_sticky_bits
     status: planned
     notes: TODO. Partial/incorrect implementation exists.See related rules. Analogous to ubuntu2204/6.1.9.
 

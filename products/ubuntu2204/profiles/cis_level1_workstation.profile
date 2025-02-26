@@ -873,7 +873,7 @@ selections:
     - accounts_tmout
 
     #### 5.4.3.3 Ensure default user umask is configured (Automated)
-    - var_accounts_user_umask=022
+    - var_accounts_user_umask=027
     - accounts_umask_etc_bashrc
     - accounts_umask_etc_login_defs
     - accounts_umask_etc_profile
