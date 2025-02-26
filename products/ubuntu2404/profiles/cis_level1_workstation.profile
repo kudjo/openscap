@@ -608,9 +608,15 @@ selections:
     # 5 Access Control #
     ## 5.1 Configure SSH Server ##
     ### 5.1.1 Ensure permissions on /etc/ssh/sshd_config are configured (Automated)
-    - file_permissions_sshd_config
-    - file_owner_sshd_config
     - file_groupowner_sshd_config
+    - file_owner_sshd_config
+    - file_permissions_sshd_config
+    - directory_groupowner_sshd_config_d
+    - directory_owner_sshd_config_d
+    - directory_permissions_sshd_config_d
+    - file_groupowner_sshd_drop_in_config 
+    - file_owner_sshd_drop_in_config
+    - file_permissions_sshd_drop_in_config
 
     ### 5.1.2 Ensure permissions on SSH private host key files are configured (Automated)
     - file_permissions_sshd_private_key
@@ -740,7 +746,7 @@ selections:
     - accounts_passwords_pam_faillock_deny
 
     ##### 5.3.3.1.2 Ensure password failed attempts lockout is configured (Automated)
-    - var_accounts_passwords_pam_faillock_unlock_time=600
+    - var_accounts_passwords_pam_faillock_unlock_time=900
     - accounts_passwords_pam_faillock_unlock_time
 
     ##### 5.3.3.1.3 Ensure password failed attempts lockout includes root account (Automated)

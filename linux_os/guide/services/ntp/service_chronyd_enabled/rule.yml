@@ -44,7 +44,7 @@ template:
     name: service_enabled
     vars:
         packagename: chrony
-        servicename: chronyd
+        servicename: chrony
         servicename@ubuntu2004: chrony
         servicename@ubuntu2204: chrony
         servicename@debian12: chrony

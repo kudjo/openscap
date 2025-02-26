@@ -65,7 +65,7 @@ template:
     name: file_permissions
     vars:
         filepath: /etc/shadow
-        filemode: '0000'
+        filemode: '0640'
         filemode@debian11: '0640'
         filemode@debian12: '0640'
         filemode@sle12: '0640'
@@ -74,3 +74,4 @@ template:
         filemode@ubuntu1804: '0640'
         filemode@ubuntu2004: '0640'
         filemode@ubuntu2204: '0640'
+        filemode@ubuntu2404: '0640'
