@@ -16,6 +16,7 @@ interactive: false
 {{% set var_dod_short = "I've read & consent to terms in IS user agreem't." %}}
 {{% set var_cis_default = "Authorized users only. All activity may be monitored and reported." %}}
 {{% set var_cis_regex = "^(?!.*(\\\\|fedora|rhel|sle|ubuntu)).*" %}}
+{{% set var_gdm_default = "WARNING: You are accessing a PROS Information System (IS) that is provided for PROS-authorized use only. By using this IS (which includes any device attached to this IS), you consent to the following conditions:\n    - PROS routinely intercepts and monitors communications on this IS for purposes including, but not limited to, security auditing, monitoring, network operations, and internal investigations.\n    - At any time, PROS may inspect and seize data stored on this IS.\n    - Communications using, or data stored on, this IS are not private, are subject to routine monitoring, interception, and may be disclosed or used for any PROS-authorized purpose." %}}
 
 options:
 # CIS doesn't enforce any specific content for login banners, but doesn't allow technical information.
