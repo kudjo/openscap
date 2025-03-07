@@ -903,6 +903,9 @@ EOF
 fi
 
 DEBIAN_FRONTEND=noninteractive pam-auth-update
+if ! grep -q '^local_users_only$' /etc/security/pwquality.conf ; then
+        echo "local_users_only" >> /etc/security/pwquality.conf
+fi
 {{%- endmacro -%}}
 
 
@@ -1106,6 +1109,9 @@ AUTH_FILES=("/etc/pam.d/system-auth" "/etc/pam.d/password-auth")
 SKIP_FAILLOCK_CHECK=false
 {{% endif %}}
 FAILLOCK_CONF="/etc/security/faillock.conf"
+if ! grep -q '^local_users_only$' $FAILLOCK_CONF ; then
+	echo "local_users_only" >> $FAILLOCK_CONF
+fi
 if [ -f $FAILLOCK_CONF ] || [ "$SKIP_FAILLOCK_CHECK" = "true" ]; then
     {{%- if value == '' %}}
     regex="^\s*{{{ option }}}"
