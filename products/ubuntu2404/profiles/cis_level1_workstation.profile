@@ -963,7 +963,7 @@ selections:
     - aide_periodic_checking_systemd_timer
 
     ### 6.3.3 Ensure cryptographic mechanisms are used to protect the integrity of audit tools (Automated)
-    - aide_check_audit_tools
+    # Skip due to L2
 
     # 7 System Maintenance
     ## 7.1 System File Permissions ##

@@ -888,7 +888,7 @@ selections:
     - aide_periodic_cron_checking
 
     ### 6.1.3 Ensure cryptographic mechanisms are used to protect the integrity of audit tools (Automated)
-    - aide_check_audit_tools
+    # Skip L2
 
     ## 6.2 System Logging ##
     ### 6.2.1 Configure journald ###
