@@ -1,0 +1,87 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-timezone="Etc/UTC" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Login</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    
+
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon-e6156c32e9030779e56a04e9a6e3864cd33d1f5f7e0a0316f6a1bd7b17f5530d.ico" />
+
+    <link rel="stylesheet" media="screen" href="/webpack/foreman-vendor.bundle-v13.1.0-production-9a8b6112b9357e54c4f3.css" />
+    <link rel="stylesheet" media="screen" href="/assets/application-6eccfed1ebb0fffe6f9c4bfb335bd6a69f46ee2bf1e26029ccbfb142baede317.css" />
+    
+
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="YrX_aw2V9AnwD1scEkbsbWf43CZEVPVL_HGEuQnTjuMIXs-R7eXNZr7SQLmxM4kkpOU75pN66W5vo2lHpYTAmQ" />
+
+    <script type="text/javascript">
+      var URL_PREFIX = '';
+
+        var AUTH_TOKEN = 'AIlC3hIaRA_en3GGCkCp9dyd9uJkTOWF9KwS5FD_PP9qYnIk8mp9YJBCaiOpNcy8H4ARIrNi-aBnfv8a_KhyhQ';
+
+    </script>
+    <script src="/assets/locale/en/app-e62969a70599e8a8af20423cd96ae24de1ec7adc08f159b290c4f56f94a56bf4.js"></script>
+    <script src="/assets/foreman-tasks/locale/en/foreman_tasks-070f7894305a90544b65ae276b9e141482b5c30a83998059412e6057237247de.js"></script><script src="/assets/foreman_ansible/locale/en/foreman_ansible-78fbaaee2705f141a717d7f0bcfe8a756193fd6e8353f8fc77d99b8ede1dcb12.js"></script><script src="/assets/foreman_discovery/locale/en/foreman_discovery-c666b11ddfffd383f0a03719869594be14b4c260f443b25537ee8be4415a5f36.js"></script><script src="/assets/foreman_openscap/locale/en/foreman_openscap-b85a8d08b46200800b76291e95b09c906546563261568cf69c9a0a9e8d9f09b4.js"></script><script src="/assets/foreman_puppet/locale/en/foreman_puppet-04171bc8a811d0a454d46600d73a864819a01aa729e26bb30d5d66fc01f8d780.js"></script><script src="/assets/foreman_remote_execution/locale/en/foreman_remote_execution-7aee6e0403f53d0d2f6504051a818aa467173c447c6770ea28b23d5016cde8a9.js"></script><script src="/assets/foreman_webhooks/locale/en/foreman_webhooks-5f11f496608f4c0daf2b94fe604de50dee806686bc698fdee69bf965c23ba72b.js"></script>
+
+    
+  </head>
+
+  <body class='pf-m-redhat-font foreman-theme'>
+    <script src="/webpack/foreman-vendor.bundle-v13.1.0-production-9a8b6112b9357e54c4f3.js"></script>
+    <script src="/webpack/vendor-d5b2c226709a97a71ab3.js"></script>
+    <script src="/webpack/bundle-2ba7c9b858e4f6aa276d.js"></script>
+    <script src="/webpack/reactExports-a6b1da0693db754674f6.js"></script>
+
+    <script src="/assets/application-c2207bbf6fb59ed6284d69732f9ec5fe0d976abd84f00adde8c91577faaa25da.js"></script>
+    <script>
+//<![CDATA[
+window.tfm.tools.loadPluginModule('/webpack/foreman_ansible','foreman_ansible','./global_index');
+//]]>
+</script><script>
+//<![CDATA[
+window.tfm.tools.loadPluginModule('/webpack/foreman_openscap','foreman_openscap','./global_index');
+//]]>
+</script><script>
+//<![CDATA[
+window.tfm.tools.loadPluginModule('/webpack/foreman_puppet','foreman_puppet','./global_index');
+//]]>
+</script><script>
+//<![CDATA[
+window.tfm.tools.loadPluginModule('/webpack/foreman_remote_execution','foreman_remote_execution','./global_index');
+//]]>
+</script><script>
+//<![CDATA[
+window.tfm.tools.loadPluginModule('/webpack/foreman_webhooks','foreman_webhooks','./routes_index');
+//]]>
+</script><script>
+//<![CDATA[
+window.tfm.tools.loadPluginModule('/webpack/katello','katello','./global_index');
+//]]>
+</script>
+    <script src="/assets/late_load-f5ec8513734c84f5ef664a82568b768eed082306d1ce67d088194647aa4bc1ff.js"></script>
+    <script type="text/javascript">
+      const html = ""
+      load_dynamic_javascripts(html);
+    </script>
+    <script type="text/javascript">
+      
+    </script>
+
+    <!--[if lte IE 9]>
+      You are using an unsupported browser.
+      See list of supported browsers: https://zlusc-katello01.prosrm.com/links/manual/3.1.4BrowserCompatibility
+    <![endif]-->
+      
+  <foreman-react-component name="LoginPage" data-props="{&quot;token&quot;:&quot;AhqEnU-crgZzw-ImlvcadYNqpZLeb7vRdcNfmGEvNSlo8bRnr-yXaT0e-YM1gn88QHdCUglBp_TmEbJmzXh7Uw&quot;,&quot;caption&quot;:&quot;Version 3.12.1&quot;,&quot;alerts&quot;:{},&quot;logoSrc&quot;:&quot;/assets/login_logo-63d18c4e799b5713757e3ca3943a78fa5e792d530a0233cba6e09ee8588c35eb.png&quot;}"></foreman-react-component>
+
+
+
+
+  </body>
+</html>
+
