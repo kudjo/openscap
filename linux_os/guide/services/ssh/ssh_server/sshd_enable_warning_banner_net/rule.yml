@@ -43,7 +43,7 @@ references:
     stigid@ubuntu2004: UBTU-20-010038
     stigid@ubuntu2204: UBTU-22-255020
 
-{{{ complete_ocil_entry_sshd_option(default="no", option="Banner", value="/etc/issue.net") }}}
+{{{ complete_ocil_entry_sshd_option(default="no", option="Banner", value="/etc/sshd_banner") }}}
 
 {{% if 'ubuntu' not in product %}}
 conflicts:
@@ -54,5 +54,5 @@ template:
     name: sshd_lineinfile
     vars:
         parameter: Banner
-        value: /etc/issue.net
+        value: /etc/sshd_banner
         datatype: string

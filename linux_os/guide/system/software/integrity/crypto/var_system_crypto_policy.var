@@ -13,6 +13,7 @@ interactive: false
 
 options:
     default: DEFAULT
+    default_pros: "DEFAULT:PROS"
     default_policy: DEFAULT
     default_nosha1: "DEFAULT:NO-SHA1"
     fips: FIPS
@@ -20,3 +21,4 @@ options:
     legacy: LEGACY
     future: FUTURE
     next: NEXT
+

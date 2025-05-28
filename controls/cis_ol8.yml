@@ -535,7 +535,7 @@ controls:
     status: automated
     rules:
       - configure_crypto_policy
-      - var_system_crypto_policy=default_nosha1
+      - var_system_crypto_policy=default_pros
 
   - id: 1.6.2
     title: Ensure system wide crypto policy disables sha1 hash and signature support (Automated)
@@ -1517,7 +1517,7 @@ controls:
       - sshd_idle_timeout_value=5_minutes
       - sshd_set_idle_timeout
       - sshd_set_keepalive
-      - var_sshd_set_keepalive=1
+      - var_sshd_set_keepalive=0
 
   - id: 4.2.8
     title: Ensure sshd DisableForwarding is enabled (Automated)
